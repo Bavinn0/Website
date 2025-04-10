@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bavin' </title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f7c7d2, #ffebf5);
+      color: #4b2e2e;
+      text-align: center;
+      overflow-x: hidden;
+      padding: 0 10px;
+      position: relative;
+      background-attachment: fixed;
+    }
+
+    header {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #f7c7d2, #ffebf5);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-bottom: 2px solid #f5a9b8;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 4rem;
+      color: #4b2e2e;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header p {
+      font-size: 1.4rem;
+      color: #8b4c39;
+      margin-top: 10px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #8b4c39;
+      border-bottom: 3px solid #fbb6c5;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .id-card {
+      background: #fff;
+      padding: 20px;
+      width: 280px;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 2s ease-out;
+      margin-bottom: 30px;
+    }
+
+    .id-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 20px;
+      border: 5px solid #f5a9b8;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .id-card p {
+      font-size: 1.3rem;
+      margin: 10px 0;
+      font-weight: 400;
+    }
+
+    .favorite-list, .dislike-list {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    .favorite-list li, .dislike-list li {
+      font-size: 1.3rem;
+      margin: 10px 0;
+      position: relative;
+    }
+
+    .favorite-list li::before {
+      content: "♥";
+      color: #f5a9b8;
+      position: absolute;
+      left: -25px;
+      top: 2px;
+      font-size: 1.5rem;
+    }
+
+    .dislike-list li::before {
+      content: "✖";
+      color: #d33b3b;
+      position: absolute;
+      left: -25px;
+      top: 2px;
+      font-size: 1.5rem;
+    }
+
+    .playlist iframe {
+      width: 100%;
+      height: 80px;
+      border-radius: 12px;
+      margin-top: 20px;
+      border: none;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: #ffe4e1;
+      padding: 30px 20px;
+      font-size: 1.2rem;
+      color: #8b4c39;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #4b2e2e;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #f5a9b8;
+    }
+
+    .social-links a {
+      color: #4b2e2e;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #f5a9b8;
+    }
+
+    .sticker-heart {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: url('https://example.com/heart-image.png') no-repeat center;
+      background-size: cover;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .sticker-star {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: url('https://example.com/star-image.png') no-repeat center;
+      background-size: cover;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .sticker {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hello-kitty {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: url('pngwing.com.png') no-repeat center;
+      background-size: cover;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    button {
+      background-color: #f5a9b8;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d69b94;
+    }
+
+    /* Mail Modal Styles */
+    .mail-modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.4); /* Black w/opacity */
+    }
+
+    .mail-modal-content {
+      background-color: #f5c6d5;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%; /* Could be more or less depending on screen size */
+      max-width: 600px;
+      text-align: center;
+      color: #4b2e2e;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .mail-modal-content h2 {
+      font-size: 2rem;
+      color: #ff69b4;
+    }
+
+    .mail-modal-content p {
+      font-size: 1.2rem;
+    }
+
+    .close {
+      color: #f5a9b8;
+      font-size: 30px;
+      font-weight: bold;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #ff69b4;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bavin's Dreamy Corner</h1>
+    <p>Welcome to my world!</p>
+  </header>
+
+  <section>
+    <h2>About Bavin</h2>
+    <div class="id-card">
+      <img src="IMG_6825.jpg" alt="Bavin's Avatar">
+      <div>
+        <p><strong>Name:</strong> Bavin</p>
+        <p><strong>Age:</strong> 16</p>
+        <p><strong>Birthday:</strong> October 6, 2008</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Favorite Things</h2>
+    <ul class="favorite-list">
+      <li>Soft pastel colors</li>
+      <li>Summerr :)</li>
+      <li>90s Vibes</li>
+      <li>MY CATT</li>
+      <li>Coquette 🎀</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Things Bavin dont Love</h2>
+    <ul class="dislike-list">
+      <li>Lying</li>
+      <li>Stress</li>
+      <li>Being rushed</li>
+      <li>School</li>
+    </ul>
+  </section>
+
+  <section class="playlist">
+    <h2>Bavin Playlist</h2>
+    <iframe src="https://open.spotify.com/embed/playlist/7G6mR1ph7XnQhn9pgPQ6b8?utm_source=generator" width="100%" height="200" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+  </section>
+
+  <footer>
+    <p>Visit my <a href="cat.html" target="_blank">Lovely cat Page</a></p>
+    <button class="mail-button" onclick="openMail()">Cute Mail</button>
+  </footer>
+
+  <!-- Cute Mail Modal -->
+  <div id="mailModal" class="mail-modal">
+    <div class="mail-modal-content">
+      <span class="close" onclick="closeMail()">&times;</span>
+      <h2>You've Got Cute Mail from ryder!</h2>
+      <p>slaw bavin" Spass kchaka!</p>
+      <p>~ Ryder</p>
+    </div>
+  </div>
+
+  <!-- Floating Hello Kitty Stickers -->
+  <div class="hello-kitty" style="top: 60px; left: 30px;"></div>
+  <div class="hello-kitty" style="top: 100px; right: 40px;"></div>
+  <div class="hello-kitty" style="top: 300px; left: 200px;"></div>
+  <div class="hello-kitty" style="top: 400px; right: 150px;"></div>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById("mailModal");
+
+    // Get the button that opens the modal
+    var btn = document.querySelector(".mail-button");
+
+    // Get the <span> element that closes the modal
+    var span = document.querySelector(".close");
+
+    // When the user clicks the button, open the modal
+    function openMail() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    function closeMail() {
+      modal.style.display = "none";
+    }
+
+    // Close the modal if the user clicks anywhere outside of the modal
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
